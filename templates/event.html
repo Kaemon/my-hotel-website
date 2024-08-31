@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Events{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center bg-light py-5">
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+        <div class="text-center mb-5" style="padding: 60px; margin: 0 auto;">
+            <h1 class="display-4 fw-bold lh-1 text-dark" style="margin-bottom: 20px;">Upcoming & Past Events</h1>
+            <p class="lead" style="margin-bottom: 30px;">Discover our exciting events and activities. Below you can find information about both upcoming and past events hosted at our hotel.</p>
+        </div>
+
+        <!-- Upcoming Events Section -->
+        <div class="mb-5">
+            <h2 class="text-dark">Upcoming Events</h2>
+            <div class="row">
+                <!-- Event 1 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm border-light">
+                        <img src="static/event1.png" class="card-img-top" alt="Event 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Join Our Exclusive Hotel Party</h5>
+                            <p class="card-text">Step into the spotlight at our stylish night party, where sophistication meets excitement. Enjoy live entertainment, exquisite drinks, and a vibrant atmosphere in our hotel's chic setting. Make unforgettable memories and celebrate in style with us.</p>
+                            <p class="text-muted">Date: September 20, 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm border-light">
+                        <img src="static/event2.png" class="card-img-top" alt="Event 2">
+                        <div class="card-body">
+                            <h5 class="card-title">A Path to Success</h5>
+                            <p class="card-text">Join us for an insightful exploration into mastering business strategies. Learn essential techniques for driving growth, optimizing operations, and leading with vision. This presentation will equip you with the tools and knowledge to navigate the complexities of modern business and achieve lasting success.</p>
+                            <p class="text-muted">Date: October 20, 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Past Events Section -->
+        <div>
+            <h2 class="text-dark">Past Events</h2>
+            <div class="row">
+                <!-- Event 1 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm border-light">
+                        <img src="static/event3.png" class="card-img-top" alt="Event 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Elevate Your Stay for Less</h5>
+                            <p class="card-text">Take advantage of our special offers and exclusive discounts to enjoy luxury at a fraction of the cost. Whether it’s a weekend getaway or an extended stay, our deals ensure you get the best value without compromising on quality. Book now and experience exceptional comfort and savings.</p>
+                            <p class="text-muted">Date: May 30, 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm border-light">
+                        <img src="static/event4.png" class="card-img-top" alt="Event 2">
+                        <div class="card-body">
+                            <h5 class="card-title">An Exclusive Exhibition at Our Hotel</h5>
+                            <p class="card-text">Immerse yourself in creativity with our exclusive art exhibition. Discover a curated collection of captivating artworks right within our hotel, offering a unique cultural experience during your stay. Join us for an inspiring journey through art and elegance.</p>
+                            <p class="text-muted">Date: October 12-15, 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

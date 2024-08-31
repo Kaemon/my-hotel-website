@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}Direction{% endblock %}
+{% block content %}
+<div class="container col-xxl-12 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+            <img src="static/bigpicture.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" style="width: 100%; max-width: 900px; height: auto;" loading="lazy">
+        </div>
+        <div class="col-lg-6">
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Your Journey to Luxury: Hotel Experience Roadmap</h1>
+            <p class="lead">Explore the ultimate hotel experience with our detailed roadmap. From seamless check-in to personalized services, every step is designed to elevate your stay. Let us guide you through a journey of comfort, style, and unmatched hospitality.</p>
+            <hr class="featurette-divider-small">
+            <div class="mt-4">
+                <label for="departure" class="form-label">Current Location:</label>
+                <select id="departure" class="form-select mb-3">
+                    <option selected>Select your current location</option>
+                    <option value="dining_area">Dining Area</option>
+                    <option value="wing-a">Wing-A</option>
+                    <option value="wing-b">Wing-B</option>
+                    <option value="wing-c">Wing-C</option>
+                    <option value="wing-d">Wing-D</option>
+                    <option value="table_tennis_court">Table Tennis Court</option>
+                    <option value="spa">Spa</option>
+                    <option value="sauna">Sauna</option>
+                    <option value="park">Park</option>
+                    <option value="jacuzzi">Jacuzzi</option>
+                    <option value="golf_course">Golf Course</option>
+                    <option value="swimming_pool">Swimming Pool</option>
+                    <option value="garden">Garden</option>
+                </select>
+
+                <label for="destination" class="form-label">Where to?</label>
+                <select id="destination" class="form-select mb-3">
+                    <option selected>Where do you wanna go ?</option>
+                    <option value="dining_area">Dining Area</option>
+                    <option value="wing-a">Wing-A</option>
+                    <option value="wing-b">Wing-B</option>
+                    <option value="wing-c">Wing-C</option>
+                    <option value="wing-d">Wing-D</option>
+                    <option value="table_tennis_court">Table Tennis Court</option>
+                    <option value="spa">Spa</option>
+                    <option value="sauna">Sauna</option>
+                    <option value="park">Park</option>
+                    <option value="jacuzzi">Jacuzzi</option>
+                    <option value="golf_course">Golf Course</option>
+                    <option value="swimming_pool">Swimming Pool</option>
+                    <option value="garden">Garden</option>
+                </select>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <button id="explore-btn" type="button" class="btn btn-outline-secondary btn-lg px-4">Explore</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Pop-up Modal -->
+<div class="modal fade" id="gifModal" tabindex="-1" aria-labelledby="gifModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="gifModalLabel">The Ultimate Roadmap to Unparalleled Hotel Experiences</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img id="selectedGif" src="" alt="Travel Animation" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('explore-btn').addEventListener('click', function() {
+        const departure = document.getElementById('departure').value;
+        const destination = document.getElementById('destination').value;
+
+        fetch('/direction', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `departure=${departure}&destination=${destination}`,
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.selected_gif) {
+                document.getElementById('selectedGif').src = data.selected_gif;
+                var myModal = new bootstrap.Modal(document.getElementById('gifModal'));
+                myModal.show();
+            } else if (data.error) {
+                alert(data.error);
+            }
+        });
+    });
+</script>
+{% endblock %}

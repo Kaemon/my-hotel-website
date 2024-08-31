@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <div class="video-background">
+        <video autoplay loop muted>
+            <source src="static/hotel.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="static/hotel.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Majestic Hotel</h1>
+        <p class="lead">Discover a blend of luxury and comfort at Majestic Hotel, where we cater to your every need. Nestled in the heart of Kuala Lumpur, our hotel offers a perfect escape with elegantly designed rooms, world-class amenities, and exceptional service. Whether you're here for business or leisure, enjoy a stay that exceeds expectations. Relax, unwind, and experience the essence of hospitality.</p>
+      </div>
+      <hr class="featurette-divider">
+      <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+              <h2 class="featurette-heading fw-normal lh-1">The Grandeur of Arrival</h2>
+              <p class="lead">Immerse yourself in the timeless elegance of our hotel lobby, where every detail has been thoughtfully curated to evoke a sense of prestige and tranquility. With its luxurious finishes and artful design, our lobby is not just a passage, but a destination—a prelude to the exceptional experience that awaits.</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+              <img src="static/lobby.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+          </div>
+      </div>
+      <hr class="featurette-divider">
+      <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">Culinary Elegance</h2>
+            <p class="lead">Step into our dining haven, where every meal is a celebration of taste and refinement. In this beautifully designed space, we offer a dining experience that harmonizes exquisite cuisine with an ambiance of sophistication. Indulge in a feast for the senses, where every detail is crafted to delight.</p>
+          </div>
+          <div class="col-md-5">
+              <img src="static/dining.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+          </div>
+      </div>
+      <hr class="featurette-divider">
+      <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+              <h2 class="featurette-heading fw-normal lh-1">Serene Retreat</h2>
+              <p class="lead">Enter your personal sanctuary, where luxury meets comfort. Our thoughtfully designed rooms provide a perfect blend of elegance and relaxation, offering a tranquil escape from the everyday. Experience exceptional amenities and stylish décor that create an inviting haven, tailored for your ultimate rest and rejuvenation.</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+              <img src="static/room.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+          </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Room Availability{% endblock %}
+{% block content %}
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-5 py-5">
+        <div class="col-lg-7">
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Check Room Availability</h1>
+            <p class="lead">Would you like to make a reservation with children, multiple rooms or more than 2 adults?</p>
+        </div>
+        <div class="col-lg-5">
+            <div class="card shadow-sm p-4">
+                <form>
+                    <div class="mb-3">
+                        <label for="checkin" class="form-label">Check-in Date</label>
+                        <input type="date" class="form-control" id="checkin" name="checkin" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="checkout" class="form-label">Check-out Date</label>
+                        <input type="date" class="form-control" id="checkout" name="checkout" required>
+                    </div>
+                    <div class="mb-3">
+                         <label for="adults" class="form-label">Adults</label>
+                        <select class="form-select" id="adults" name="adults" required>
+                            <option selected>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                         <label for="children" class="form-label">Children</label>
+                        <select class="form-select" id="children" name="children" required>
+                            <option selected>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <button type="button" id="checkAvailabilityBtn" class="btn btn-outline-secondary btn-lg w-100">Check Availability</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('checkAvailabilityBtn').addEventListener('click', function() {
+        const checkin = document.getElementById('checkin').value;
+        const checkout = document.getElementById('checkout').value;
+        const adults = document.getElementById('adults').value;
+        const children = document.getElementById('children').value;
+        console.log('Redirecting to /rooms with:', checkin, checkout, adults, children);
+
+        if (checkin && checkout && adults && children) {
+            window.location.href = `/rooms?checkin=${checkin}&checkout=${checkout}&adults=${adults}&children=${children}`;
+        } else {
+            alert('Please fill in all fields.');
+        }
+    });
+</script>
+{% endblock %}

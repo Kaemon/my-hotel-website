@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block title %}Welcome{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center bg-light py-5">
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+        <div class="text-center mb-5" style="padding: 60px; margin: 0 auto;">
+            <h1 class="display-4 fw-bold lh-1 text-dark" style="margin-bottom: 20px;">Welcome {{ roomid }}</h1>
+            <p class="lead" style="margin-bottom: 10px;">Thank you for staying with us! Below you can find available cleaning staff and their booking times.</p>
+        </div>
+
+        <!-- Row for employees and booking -->
+        <div class="row">
+            <!-- Employees section -->
+            <div class="col-md-12">
+                <h3 class="text-dark">Available Cleaning Staff</h3>
+
+                <!-- Employee 1 -->
+                <div class="list-group-item mb-4 bg-white shadow-sm p-3">
+                    <div class="d-flex align-items-center">
+                        <img src="static/staff_1.jpg" alt="Athena" class="rounded-circle me-3" style="width: 100px; height: 100px; object-fit: cover; border: 2px solid #ccc;">
+                        <div class="flex-grow-1">
+                            <h5 class="mb-0">Athena</h5>
+                            <p class="mb-0 text-secondary">Rating: 4.8/5</p>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h6 class="text-dark">Available Booking Times</h6>
+                        <form action="{{ url_for('book_cleaning') }}" method="POST">
+                            <div class="list-group">
+                                <div class="list-group-item d-flex justify-content-between align-items-center bg-white">
+                                    <span>10:00 AM - 11:00 AM</span>
+                                    <button class="btn btn-outline-secondary btn-sm" type="submit">Book</button>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center bg-white">
+                                    <span>1:00 PM - 2:00 PM</span>
+                                    <button class="btn btn-outline-secondary btn-sm" type="submit">Book</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Employee 2 -->
+                <div class="list-group-item mb-4 bg-white shadow-sm p-3">
+                    <div class="d-flex align-items-center">
+                        <img src="static/staff_2.jpg" alt="Malone Smith" class="rounded-circle me-3" style="width: 100px; height: 100px; object-fit: cover; border: 2px solid #ccc;">
+                        <div class="flex-grow-1">
+                            <h5 class="mb-0">Malone Smith</h5>
+                            <p class="mb-0 text-secondary">Rating: 4.7/5</p>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h6 class="text-dark">Available Booking Times</h6>
+                        <form action="{{ url_for('book_cleaning') }}" method="POST">
+                            <div class="list-group">
+                                <div class="list-group-item d-flex justify-content-between align-items-center bg-white">
+                                    <span>9:00 AM - 10:00 AM</span>
+                                    <button class="btn btn-outline-secondary btn-sm" type="submit">Book</button>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center bg-white">
+                                    <span>2:00 PM - 3:00 PM</span>
+                                    <button class="btn btn-outline-secondary btn-sm" type="submit">Book</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Employee 3 -->
+                <div class="list-group-item mb-4 bg-white shadow-sm p-3">
+                    <div class="d-flex align-items-center">
+                        <img src="static/staff_3.jpg" alt="Alice" class="rounded-circle me-3" style="width: 100px; height: 100px; object-fit: cover; border: 2px solid #ccc;">
+                        <div class="flex-grow-1">
+                            <h5 class="mb-0">Alice</h5>
+                            <p class="mb-0 text-secondary">Rating: 4.9/5</p>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h6 class="text-dark">Available Booking Times</h6>
+                        <form action="{{ url_for('book_cleaning') }}" method="POST">
+                            <div class="list-group">
+                                <div class="list-group-item d-flex justify-content-between align-items-center bg-white">
+                                    <span>11:00 AM - 12:00 PM</span>
+                                    <button class="btn btn-outline-secondary btn-sm" type="submit">Book</button>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center bg-white">
+                                    <span>3:00 PM - 4:00 PM</span>
+                                    <button class="btn btn-outline-secondary btn-sm" type="submit">Book</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

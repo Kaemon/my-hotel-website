@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Rooms{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+        <div class="row align-items-center g-lg-5 py-5">
+            <div class="col-lg-7 text-center text-lg-start">
+                <h1 class="display-4 fw-bold lh-1 text-dark mb-3">Your Assurance of a Pristine Stay</h1>
+                <p class="col-lg-10 fs-4 text-secondary">
+                    Enjoy the comfort of a spotless environment with our meticulous cleaning services. Every corner of your room is carefully maintained to the highest standards, ensuring a fresh and welcoming space for your stay. Trust in our commitment to providing you with a pristine and relaxing experience.
+                </p>
+            </div>
+            <div class="col-md-10 mx-auto col-lg-5">
+                <form class="p-4 p-md-5 border rounded-3 bg-white" action="{{ url_for('clean') }}" method="POST">
+                    <div class="form-floating mb-3">
+                        <input type="text" name="roomid" class="form-control no-focus" id="floatingInput" placeholder="Enter your Room ID">
+                        <label for="floatingInput">RoomID</label>
+                    </div>
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" value="remember-me" class="no-focus-checkbox"> Remember me
+                        </label>
+                    </div>
+                    <button class="w-100 btn btn-lg btn-outline-secondary" type="submit">Sign up</button>
+                    <hr class="my-4">
+                    <small class="text-secondary">By clicking Sign up, you agree to the terms of use.</small>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

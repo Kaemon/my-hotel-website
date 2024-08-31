@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Rooms{% endblock %}
+{% block content %}
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-5 py-5">
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Available Rooms</h1>
+        <h2>From {{ checkin }} to {{ checkout }} for {{ adults }} adults and {{ children }} children</h2>
+        <div class="row">
+            {% for room in rooms %}
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <!-- 图片轮播 -->
+                    <div id="carousel{{ loop.index }}" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            {% for image in room.images %}
+                            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                <img src="{{ image }}" class="d-block w-100" alt="{{ room.type }} Image">
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{ loop.index }}" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel{{ loop.index }}" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <!-- 卡片内容 -->
+                    <div class="card-body">
+                        <h5 class="card-title">{{ room.type }}</h5>
+                        <p class="card-text">Room Details: {{ room.details }}</p>
+                        <p class="card-text">Capacity: {{ room.capacity }} adults</p>
+                        <p class="card-text">Price: ${{ room.price }} per night</p>
+                        <form action="/payment" method="GET">
+                            <input type="hidden" name="room_type" value="{{ room.type }}">
+                            <input type="hidden" name="checkin" value="{{ checkin }}">
+                            <input type="hidden" name="checkout" value="{{ checkout }}">
+                            <input type="hidden" name="adults" value="{{ adults }}">
+                            <input type="hidden" name="children" value="{{ children }}">
+                            <input type="hidden" name="price" value="{{ room.price }}">
+                            <button type="submit" class="btn btn-outline-secondary">Book Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
